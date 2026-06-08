@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Lane Defense Prototype</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="field-wrap">
+        <div class="canvas-stage">
+          <canvas id="gameCanvas" width="360" height="640" aria-label="game field" draggable="false"></canvas>
+
+          <button
+            type="button"
+            id="settingsToggle"
+            class="settings-toggle"
+            aria-label="設定を開く"
+            aria-expanded="false"
+            aria-controls="settingsPanel"
+          >
+            設定
+          </button>
+
+          <div class="base-hp-bar" aria-label="拠点HP">
+            <span class="base-hp-label">HP</span>
+            <div class="base-hp-track">
+              <div id="baseHpBarFill" class="base-hp-fill"></div>
+            </div>
+            <span id="baseHpBarText" class="base-hp-text">5 / 5</span>
+          </div>
+
+          <section id="settingsPanel" class="settings-panel" hidden>
+          <div class="settings-panel-header">
+            <h2>設定</h2>
+            <button type="button" id="settingsClose" class="settings-close" aria-label="設定を閉じる">
+              閉じる
+            </button>
+          </div>
+          <div class="stats">
+            <span>Gold: <strong id="goldValue">0</strong></span>
+            <span>HP: <strong id="baseHpValue">0</strong></span>
+            <span>Wave: <strong id="waveValue">0</strong></span>
+          </div>
+          <label class="timing-control" for="holdDurationSlider">
+            <span>停止時間</span>
+            <strong id="holdDurationValue">0.92</strong><span class="unit">秒</span>
+          </label>
+          <input
+            id="holdDurationSlider"
+            type="range"
+            min="0"
+            max="3"
+            step="0.01"
+            value="0.92"
+          />
+          <p id="statusText">準備中...</p>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
